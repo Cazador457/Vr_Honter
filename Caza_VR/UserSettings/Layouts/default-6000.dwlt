@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 40
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 40
+  controlID: 41
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 41
+  controlID: 42
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 0
     width: 305
     height: 712
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -446,9 +446,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b4cf0000
       m_LastClickedID: 0
-      m_ExpandedIDs: acedffff12fbffff
+      m_ExpandedIDs: 12fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -996,9 +996,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 26.299328, y: 11.987449, z: 29.87187}
+    m_Target: {x: 39.170578, y: -0.7425549, z: 96.675514}
     speed: 2
-    m_Value: {x: 26.299328, y: 11.987449, z: 29.87187}
+    m_Value: {x: 39.170578, y: -0.7425549, z: 96.675514}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1044,13 +1044,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.00048070864, y: -0.63564485, z: -0.00009387787, w: -0.77237445}
+    m_Target: {x: 0.08855489, y: 0.89477897, z: -0.388599, w: 0.20284106}
     speed: 2
-    m_Value: {x: -0.00048056283, y: -0.6354521, z: -0.0000938494, w: -0.7721402}
+    m_Value: {x: 0.08852723, y: 0.8944995, z: -0.38847762, w: 0.2027777}
   m_Size:
-    m_Target: 3.3002074
+    m_Target: 9.530661
     speed: 2
-    m_Value: 3.3002074
+    m_Value: 9.530661
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1131,7 +1131,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenary_Test/Scripts
+    - Assets/Scenary_Test/Scripts/Enemy
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1141,16 +1141,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenary_Test/Scripts
+  - Assets/Scenary_Test/Scripts/Enemy
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Lab121-23\Desktop\Vr_Honter\Caza_VR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 25}
-    m_SelectedIDs: 24d20000
-    m_LastClickedID: 53796
-    m_ExpandedIDs: 000000007acb000010d2000024d2000000ca9a3b
+    m_SelectedIDs: a0ce0000
+    m_LastClickedID: 52896
+    m_ExpandedIDs: 00000000f0c700008ace000098ce0000a0ce000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1179,7 +1179,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007acb0000
+    m_ExpandedIDs: 00000000f0c70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
