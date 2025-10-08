@@ -9,11 +9,10 @@ public class BlockWalls : MonoBehaviour
     {
         if (other.gameObject == key)
         {
-            foreach(GameObject obj in wallObs)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
+            GameManager.Instance.InsideObject(false);
+            GameManager.Instance.OffWalls(wallObs);
+
+
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -21,10 +20,7 @@ public class BlockWalls : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             foreach (GameObject obj in wallObs)
-            {
-                if (obj != null)
-                    obj.SetActive(true);
-            }
+                obj.SetActive(false);
         }
     }
 }
