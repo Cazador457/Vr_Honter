@@ -2,13 +2,11 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public int damage;
     [Header("Patrol")]
     public Transform[] patrolPoints;
     private NavMeshAgent _agent;
     private int _patrolIndex;
-    private float _arrive = 1f;
-    
+    private float _arrive = 0.5f;
      void Start()
     {
         Destination();
@@ -35,4 +33,5 @@ public class Enemy : MonoBehaviour
             _agent.SetDestination(patrolPoints[_patrolIndex].position);
         }
     }
+    
 }

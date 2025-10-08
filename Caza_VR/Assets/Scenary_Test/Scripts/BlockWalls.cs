@@ -11,8 +11,7 @@ public class BlockWalls : MonoBehaviour
         {
             GameManager.Instance.InsideObject(false);
             GameManager.Instance.OffWalls(wallObs);
-
-
+            Debug.Log("Walls Off");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -20,7 +19,8 @@ public class BlockWalls : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             foreach (GameObject obj in wallObs)
-                obj.SetActive(false);
+                obj.SetActive(true);
         }
+        Debug.Log("On Secret Room");
     }
 }
