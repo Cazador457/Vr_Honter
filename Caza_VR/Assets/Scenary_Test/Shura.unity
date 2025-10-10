@@ -186,16 +186,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   patrolPoints:
-  - {fileID: 937816801}
-  - {fileID: 1220167338}
-  - {fileID: 794010195}
-  - {fileID: 1220167338}
-  - {fileID: 934184817}
-  - {fileID: 1308016917}
-  - {fileID: 626372201}
-  - {fileID: 794010195}
-  - {fileID: 1220167338}
-  - {fileID: 1308016917}
+  - {fileID: 1802604527}
+  - {fileID: 907402754}
+  - {fileID: 1807099393}
+  - {fileID: 2117014854}
+  - {fileID: 646932180}
+  - {fileID: 1807099393}
 --- !u!195 &45994115
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -276,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 45994113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.41, y: 0.514, z: 27.46}
+  m_LocalPosition: {x: 31.41, y: 0.514, z: 50.12}
   m_LocalScale: {x: 2.6182358, y: 2.6182358, z: 2.6182358}
   m_ConstrainProportionsScale: 0
   m_Children:

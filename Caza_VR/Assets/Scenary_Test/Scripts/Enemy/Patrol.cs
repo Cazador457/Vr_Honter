@@ -12,7 +12,7 @@ public class Patrol:MonoBehaviour
     public float rangeVision = 5f;
     public float visionAngle = 60f;
     public bool sighted = false;
-    void Destination() //Start()
+    public void Destination() //Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         if (patrolPoints.Length > 0)
@@ -21,7 +21,7 @@ public class Patrol:MonoBehaviour
             _agent.SetDestination(patrolPoints[_patrolIndex].position);
         }
     }
-    void ChangeDestination()
+    public void ChangeDestination()
     {
         if (patrolPoints.Length == 0) return;
         if (!_agent.pathPending && _agent.remainingDistance < _arrive)
