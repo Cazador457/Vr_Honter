@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 2117014854}
   - {fileID: 646932180}
   - {fileID: 1807099393}
+  health: 50
 --- !u!195 &45994115
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -448,6 +449,10 @@ MonoBehaviour:
   - {fileID: 1807099392}
   - {fileID: 2117014853}
   - {fileID: 646932179}
+  spawnCheckRadius: 1.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   currentEnemies: 5
   nextSpawn: 5
 --- !u!4 &417092772
@@ -3740,6 +3745,10 @@ MonoBehaviour:
   - {fileID: 1807099392}
   - {fileID: 2117014853}
   - {fileID: 646932179}
+  spawnCheckRadius: 1.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   currentEnemies: 5
   nextSpawn: 5
 --- !u!4 &1713949149
@@ -15730,9 +15739,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   firePoint: {fileID: 1034846158}
   bulletTag: Bullet
-  bulletPref: {fileID: 4464732091135265406, guid: 61d417ee3b436724a931c9bd24b2f33e, type: 3}
   bulletSpeed: 10
-  controllerNode: 5
+  triggerAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Trigger
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 5b295e54-c63c-4ca3-b21d-08382d372dd9
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!198 &8870215231901611778
 ParticleSystem:
   m_ObjectHideFlags: 0

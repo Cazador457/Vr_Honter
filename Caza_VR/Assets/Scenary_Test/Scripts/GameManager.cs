@@ -27,15 +27,6 @@ public class GameManager : MonoBehaviour
             saveSystem.LoadData();
     }
     
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
-    
     //Items Room
     public void InsideObject(bool state)
     {
