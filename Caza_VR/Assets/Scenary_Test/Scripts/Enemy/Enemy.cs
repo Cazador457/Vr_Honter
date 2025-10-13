@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
@@ -7,7 +8,11 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent _agent;
     private int _patrolIndex;
     private float _arrive = 0.5f;
-     void Start()
+
+    [Header("Stats")]
+    public float health = 50f;
+    public event Action onDeath;
+    void Start()
     {
         Destination();
     }
@@ -33,5 +38,26 @@ public class Enemy : MonoBehaviour
             _agent.SetDestination(patrolPoints[_patrolIndex].position);
         }
     }
-    
+    //Stats
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        onDeath?.Invoke();
+
+        gameObject.SetActive(false);
+        health = 50f;
+    }
+
+    void OnEnable()
+    {
+        health = 50f;
+    }
 }

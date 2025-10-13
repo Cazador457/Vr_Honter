@@ -1,32 +1,35 @@
 using UnityEngine;
 public class Bullet : MonoBehaviour
 {
-    public float LifeTime = 4f;
-    public float Speed = 1f;
-    public float Damage = 1;
-    private Vector3 direction;
-    private Rigidbody rb;
+    public float speed = 20f;
+    public float damage = 50f;
+    public float lifetime = 3f;
 
-    void Start()
+    private float lifeTimer;
+
+    void OnEnable()
     {
-        Prepare();
+        lifeTimer = lifetime;
     }
-    void Prepare()
-    {
-        rb = GetComponent<Rigidbody>();
-        direction = transform.forward;
-    }
+
     void Update()
     {
-        
-    }
-    void FixedUpdate()
-    {
-        Move();
-    }
-    void Move()
-    {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        rb.linearVelocity = direction * Speed;
+        lifeTimer -= Time.deltaTime;
+        if (lifeTimer <= 0f)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+            gameObject.SetActive(false);
+        }
     }
 }

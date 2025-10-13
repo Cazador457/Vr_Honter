@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public PoolManager poolManager;
+    public SaveSystem saveSystem;
 
     public bool sObject = true;
     public bool systemActive = true;
@@ -17,7 +19,24 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        poolManager = GetComponent<PoolManager>();
+        saveSystem = GetComponent<SaveSystem>();
+
+        if (saveSystem != null)
+            saveSystem.LoadData();
     }
+    
+    void Start()
+    {
+        
+    }
+    void Update()
+    {
+        
+    }
+    
+    //Items Room
     public void InsideObject(bool state)
     {
         sObject = state;
@@ -31,12 +50,11 @@ public class GameManager : MonoBehaviour
         }
         systemActive = false;
     }
-    void Start()
+
+    //Game Data
+    public void SaveGame()
     {
-        
-    }
-    void Update()
-    {
-        
+        if (saveSystem != null)
+            saveSystem.SaveData();
     }
 }

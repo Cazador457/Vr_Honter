@@ -3,8 +3,9 @@ using UnityEngine.XR;
 
 public class Gun : MonoBehaviour
 {
+    public Transform firePoint;
+    public string bulletTag = "Bullet";
     public GameObject bulletPref;
-    public Transform FirePoint;
     public float bulletSpeed = 10f;
     public XRNode controllerNode = XRNode.RightHand;
     private InputDevice device;
@@ -26,9 +27,6 @@ public class Gun : MonoBehaviour
     }
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPref, FirePoint.position, FirePoint.rotation);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.linearVelocity = FirePoint.forward * bulletSpeed;
-        Destroy(bullet, 3f);
+        GameManager.Instance.poolManager.SpawnFromPool(bulletTag, firePoint.position, firePoint.rotation);
     }
 }
