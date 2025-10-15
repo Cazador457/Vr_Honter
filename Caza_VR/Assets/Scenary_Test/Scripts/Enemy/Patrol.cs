@@ -6,7 +6,7 @@ public class Patrol:MonoBehaviour
     public Transform[] patrolPoints;
     private NavMeshAgent _agent;
     private int _patrolIndex;
-    private float _arrive = 1f;
+    private float _arrive = 0.5f;
     [Header("Pursuit")]
     public Transform player;
     public float rangeVision = 5f;
