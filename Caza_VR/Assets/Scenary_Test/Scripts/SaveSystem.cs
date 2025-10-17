@@ -32,6 +32,7 @@ public class SaveSystem : MonoBehaviour
         }
     }
 }
+[System.Serializable]
 public class GameData
 {
     public int bulletsFired;

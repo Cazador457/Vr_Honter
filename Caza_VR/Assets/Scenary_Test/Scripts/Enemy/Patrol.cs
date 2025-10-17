@@ -21,7 +21,7 @@ public class Patrol:MonoBehaviour
             _agent.SetDestination(patrolPoints[_patrolIndex].position);
         }
     }
-    public void ChangeDestination()
+    public void ChangeDestination()  //Update si no se ocupa VisionEnemy()
     {
         if (patrolPoints.Length == 0) return;
         if (!_agent.pathPending && _agent.remainingDistance < _arrive)
