@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System;
-
-public class EnemyMele : Enemy
+public class LightMovPatrol : MonoBehaviour
 {
     [Header("Resources")]
     private PatrolForPoints _patrolMovement;
+    public static Action OnPursuit;
 
     [Header("Patrol")]
     public Transform[] patrolPoints;
@@ -25,5 +25,9 @@ public class EnemyMele : Enemy
     void Update()
     {
         _patrolMovement?.ChangeDestination();
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        OnPursuit?.Invoke();
     }
 }

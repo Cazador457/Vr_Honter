@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
         health = 50f;
     }
-    public void OnEnable()
+    public virtual void OnEnable()
     {
         health = 50f;
     }
