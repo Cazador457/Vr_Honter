@@ -1,35 +1,46 @@
+using System;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.PlayerLoop;
+
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
-    public float damage = 50f;
-    public float lifetime = 3f;
-
-    private float lifeTimer;
-
+    public static Action OnDie;
+    public float LifeTime = 4f;
+    public float Speed = 1f;
+    public float Damage = 1f;
+    public Vector3 direction;
+    private Rigidbody rb;
+    private Coroutine corLife;
     void OnEnable()
     {
-        lifeTimer = lifetime;
+        Prepare();
+    }
+    void Prepare()
+    {
+        rb = GetComponent<Rigidbody>();
+        direction = transform.forward;
+        if(corLife == null){StopCoroutine((corLife));}
+        corLife = StartCoroutine(Life(LifeTime));
+    }
+    void FixedUpdate()
+    {
+        Move();
+    }
+    void Move()
+    {
+        rb.linearVelocity = direction * Speed;
     }
 
-    void Update()
+    IEnumerator Life(float _life)
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-        lifeTimer -= Time.deltaTime;
-        if (lifeTimer <= 0f)
-        {
-            gameObject.SetActive(false);
-        }
+        yield return new WaitForSeconds(_life);
+        gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnDisable()
     {
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
-            gameObject.SetActive(false);
-        }
+        //mandar el evento para que el observador lo rgrese al cartucho
+        if(OnDie!=null){OnDie.Invoke();}
     }
 }

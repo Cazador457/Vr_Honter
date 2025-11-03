@@ -14,7 +14,8 @@ public class EnemySpawnPoints : MonoBehaviour
     public int currentEnemies;
     public float nextSpawn;
 
-    public Transform[] patrolRoute;
+    public Transform[] route1;
+    public Transform[] route2;
 
     void Start()
     {
@@ -69,9 +70,9 @@ public class EnemySpawnPoints : MonoBehaviour
             }
         }
     }
-    public void SpawnEnemy()
+    public void SpawnEnemy(bool ChoseRute)
     {
-        Transform[] selectedRoute = patrolRoute;
+        Transform[] selectedRoute = ChoseRute ? route1 : route2;
 
         PoolManager.Instance.SpawnFromPool(
             "Enemy",
