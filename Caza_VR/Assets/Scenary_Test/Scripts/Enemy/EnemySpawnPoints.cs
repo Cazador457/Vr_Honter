@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class EnemySpawnPoints : MonoBehaviour
 {
-    public string enemyTag = "Enemy";
+    public string enemyTag;
     public float spawnInterval = 6f;
     public int maxEnemies = 8;
 
@@ -14,6 +14,7 @@ public class EnemySpawnPoints : MonoBehaviour
     public int currentEnemies;
     public float nextSpawn;
 
+    public Transform[] patrolRoute;
 
     void Start()
     {
@@ -67,6 +68,17 @@ public class EnemySpawnPoints : MonoBehaviour
                 enemyComponent.onDeath += OnEnemyDeath;
             }
         }
+    }
+    public void SpawnEnemy()
+    {
+        Transform[] selectedRoute = patrolRoute;
+
+        PoolManager.Instance.SpawnFromPool(
+            "Enemy",
+            transform.position,
+            Quaternion.identity,
+            selectedRoute
+        );
     }
     void OnEnemyDeath()
     {

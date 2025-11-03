@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class PoolManager : MonoBehaviour
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
-    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation, Transform[] optionalRoute = null)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -51,9 +52,16 @@ public class PoolManager : MonoBehaviour
         objectToSpawn.transform.SetPositionAndRotation(position, rotation);
         poolDictionary[tag].Enqueue(objectToSpawn);
 
+        IPath patrolPool = objectToSpawn.GetComponent<IPath>();
+        if (patrolPool != null)
+        {
+            patrolPool.OnSpawned(optionalRoute);
+        }
+
         // Ejemplo: notificar al GameManager
         GameManager.Instance.saveSystem.stats.bulletsFired++;
 
+        poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
     }
 }

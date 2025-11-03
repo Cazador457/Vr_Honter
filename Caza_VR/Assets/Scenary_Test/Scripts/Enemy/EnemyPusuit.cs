@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyPusuit : Enemy
 {
-    public Transform target;
+    public GameObject target;
     private NavMeshAgent agent;
     private float stopRange=1.5f;
+    private Transform targetT;
     private void Start()
     {
+        target = GameObject.Find("XR Origin Hands (XR Rig)");
+        targetT=target.GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
     }
     public override void OnEnable()
@@ -21,10 +25,10 @@ public class EnemyPusuit : Enemy
     }
     void Pursuit()
     {
-        float distance = Vector3.Distance(agent.nextPosition, target.position);
+        float distance = Vector3.Distance(agent.nextPosition,targetT.position);
         if (distance > stopRange)
         {
-            agent.SetDestination(target.position);
+            agent.SetDestination(targetT.position);
         }
         else if (distance < stopRange)
         {

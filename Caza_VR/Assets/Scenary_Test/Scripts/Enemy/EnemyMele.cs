@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 
-public class EnemyMele : Enemy
+public class EnemyMele : Enemy, IPath
 {
     [Header("Resources")]
     private PatrolForPoints _patrolMovement;
@@ -11,6 +11,7 @@ public class EnemyMele : Enemy
     public Transform[] patrolPoints;
     private NavMeshAgent agent;
     private int patrolIndex;
+    private int currentPoint = 0;
 
     public void Initialized()
     {
@@ -25,5 +26,13 @@ public class EnemyMele : Enemy
     void Update()
     {
         _patrolMovement?.ChangeDestination();
+    }
+    public void OnSpawned(Transform[] optionalRoute = null)
+    {
+        if (optionalRoute != null && optionalRoute.Length > 0)
+        {
+            patrolPoints = optionalRoute;
+            currentPoint = 0;
+        }
     }
 }
