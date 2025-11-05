@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         direction = transform.forward;
-        if(corLife == null){StopCoroutine((corLife));}
+        if(corLife != null){StopCoroutine((corLife));}
         corLife = StartCoroutine(Life(LifeTime));
     }
     void FixedUpdate()
