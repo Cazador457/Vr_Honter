@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System;
-using UnityEngine.PlayerLoop;
 
-public class EnemyMele : Enemy
+public class EnemyMeleVar : Enemy
 {
     [Header("Resources")]
     private PatrolForPoints _patrolMovement;
@@ -14,21 +13,18 @@ public class EnemyMele : Enemy
     private int patrolIndex;
     private int currentPoint = 0;
 
+    private bool initialized = false;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        
-    }
-    private void Start()
-    {
-        _patrolMovement = new PatrolForPoints(agent, patrolPoints, patrolIndex);
     }
 
     void Update()
     {
-        _patrolMovement?.ChangeDestination();
+        if (initialized)
+        {
+            _patrolMovement?.ChangeDestination();
+        }
     }
-
-    
 }

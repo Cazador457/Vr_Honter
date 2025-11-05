@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : MonoBehaviour
+public class PoolVar : MonoBehaviour
 {
-    public static PoolManager Instance;
+    public static PoolVar Instance;
 
     [System.Serializable]
     public class Pool
@@ -18,12 +18,10 @@ public class PoolManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
-
-    void Start()
-    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         foreach (Pool pool in pools)
@@ -39,9 +37,10 @@ public class PoolManager : MonoBehaviour
 
             poolDictionary.Add(pool.tag, objectPool);
         }
+
     }
 
-    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation, Transform[] optionalRoute = null)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -51,22 +50,11 @@ public class PoolManager : MonoBehaviour
 
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
 
-        //MUY IMPORTANTE: moverlo ANTES de activarlo
-        objectToSpawn.transform.SetPositionAndRotation(position, rotation);
         objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.rotation = rotation;
 
-        // Si tiene un script con IPath, pasa la ruta
-        IPath patrolPool = objectToSpawn.GetComponent<IPath>();
-        if (patrolPool != null)
-        {
-            patrolPool.OnSpawned(optionalRoute);
-        }
-
-        //Reencolar después de usarlo
         poolDictionary[tag].Enqueue(objectToSpawn);
-
-        //Log de depuración
-        Debug.Log($"Spawned '{objectToSpawn.name}' en posición {position}");
 
         return objectToSpawn;
     }

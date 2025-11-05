@@ -28,6 +28,10 @@ public class LightMovPatrol : MonoBehaviour
     }
     public void OnTriggerStay(Collider other)
     {
-        OnPursuit?.Invoke();
+        if (other.CompareTag("Player"))
+        {
+            OnPursuit?.Invoke();
+        }
+            
     }
 }

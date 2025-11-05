@@ -1,13 +1,19 @@
 using UnityEngine;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PoolManager poolManager;
-    public SaveSystem saveSystem;
+
+    public Transform[] respawnPosition;
+
+    public GameObject player;
 
     public bool sObject = true;
     public bool systemActive = true;
+    public int enemiesKilled=0;
+    public int bulletsFired=0;
     void Awake()
     {
         if(Instance == null)
@@ -21,10 +27,6 @@ public class GameManager : MonoBehaviour
         }
 
         poolManager = GetComponent<PoolManager>();
-        saveSystem = GetComponent<SaveSystem>();
-
-        if (saveSystem != null)
-            saveSystem.LoadData();
     }
     
     //Items Room
@@ -42,10 +44,16 @@ public class GameManager : MonoBehaviour
         systemActive = false;
     }
 
-    //Game Data
-    public void SaveGame()
+    //Respawn
+    IEnumerator Respawn()
     {
-        if (saveSystem != null)
-            saveSystem.SaveData();
+        player.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        player.transform.position = respawnPosition[0].position;
+        player.SetActive(true);
+    }
+    public void Res()
+    {
+        StartCoroutine(Respawn());
     }
 }

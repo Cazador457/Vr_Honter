@@ -6,8 +6,8 @@ public class Hit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneChangeManager.Instance.ChangeScene();
-            Debug.Log("Se acabo");
+            GameManager.Instance.Res();
+            Debug.Log("Die");
         }
     }
 }
