@@ -25,6 +25,10 @@ public class PrimaryButtonWatcher : MonoBehaviour
 
     void OnEnable()
     {
+        
+    }
+    public void Start()
+    {
         List<InputDevice> allDevices = new List<InputDevice>();
         InputDevices.GetDevices(allDevices);
         foreach (InputDevice device in allDevices)

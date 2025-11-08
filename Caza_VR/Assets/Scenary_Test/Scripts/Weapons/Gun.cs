@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
                         break;                                                                                    
                     case BulletType.Normal:                                                                       
                         GameObject bullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);   
-                        bullet.GetComponent<Bullet>().direction = transform.parent.forward;
+                        bullet.GetComponent<Bullet>().direction = transform.forward;
                         break;                                                                                    
                     case BulletType.Antipersonnel:                                                                
                         break;                                                                                    
