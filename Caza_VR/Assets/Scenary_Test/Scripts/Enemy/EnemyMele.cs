@@ -32,13 +32,13 @@ public class EnemyMele : Enemy
             Pursuit();
         }
     }
-    public void OnTriggerExit(Collider other)
+    /*public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             _patrolMovement?.ChangeDestination();
         }
-    }
+    }*/
     public void Pursuit()
     {
         StartCoroutine(Pursuits());
@@ -62,6 +62,4 @@ public class EnemyMele : Enemy
             yield return null;
         }
     }
-
-
 }

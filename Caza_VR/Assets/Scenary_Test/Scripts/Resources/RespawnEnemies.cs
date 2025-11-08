@@ -1,48 +1,57 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class RespawnEnemies : MonoBehaviour
 {
-    public Enemy[] enemies;
+    public GameObject[] objectsToCheck;
     public Transform[] respawnPoints;
-    public float respawntime = 2f;
+    public float respawnTime = 3f;
 
-    // Para evitar respawns duplicados
-    private HashSet<Enemy> waitingRespawn = new HashSet<Enemy>();
+    // Para recordar qué objetos ya están esperando respawn
+    private bool[] isRespawning;
 
     private void Start()
     {
-        // Nos suscribimos a los eventos de cada enemigo
-        foreach (var e in enemies)
+        isRespawning = new bool[objectsToCheck.Length];
+    }
+
+    private void Update()
+    {
+        EnemyState();
+    }
+
+    private void EnemyState()
+    {
+        for (int i = 0; i < objectsToCheck.Length; i++)
         {
-            e.onDeath += HandleEnemyDeath;
+            GameObject obj = objectsToCheck[i];
+
+            // Si está desactivado y NO se está haciendo respawn…
+            if (!obj.activeSelf && !isRespawning[i])
+            {
+                StartCoroutine(RespawnObject(obj, i));
+            }
         }
     }
 
-    private void HandleEnemyDeath(Enemy enemy)
+    private IEnumerator RespawnObject(GameObject obj, int index)
     {
-        // Evitar iniciar dos corrutinas del mismo enemigo
-        if (!waitingRespawn.Contains(enemy))
-        {
-            waitingRespawn.Add(enemy);
-            StartCoroutine(Respawn(enemy));
-        }
-    }
+        // Marcamos que ya se lanzó su respawn
+        isRespawning[index] = true;
 
-    private IEnumerator Respawn(Enemy enemy)
-    {
-        yield return new WaitForSeconds(respawntime);
+        yield return new WaitForSeconds(respawnTime);
 
-        int i = Random.Range(0, respawnPoints.Length);
+        // Punto aleatorio
+        int p = Random.Range(0, respawnPoints.Length);
 
-        // Posicionarlo ANTES de activarlo
-        enemy.transform.position = respawnPoints[i].position;
-        enemy.transform.rotation = respawnPoints[i].rotation;
+        // Preparar posición ANTES de activar
+        obj.transform.position = respawnPoints[p].position;
+        obj.transform.rotation = respawnPoints[p].rotation;
 
-        enemy.gameObject.SetActive(true);
+        // Activar
+        obj.SetActive(true);
 
-        // Lo sacamos de la lista de espera
-        waitingRespawn.Remove(enemy);
+        // Marcar como listo de nuevo
+        isRespawning[index] = false;
     }
 }

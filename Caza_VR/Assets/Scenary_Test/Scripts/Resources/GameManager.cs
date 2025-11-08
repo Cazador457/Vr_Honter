@@ -7,8 +7,12 @@ public class GameManager : MonoBehaviour
     public PoolManager poolManager;
 
     public Transform[] respawnPosition;
-
+    public int respawnPos = 0;
     public GameObject player;
+
+    public bool pistol = false;
+    public bool scythe = false;
+    public bool sword = false;
 
     public bool sObject = true;
     public bool systemActive = true;
@@ -25,8 +29,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //FrameRate Cap
-        //Application.targetFrameRate = 60;
         poolManager = GetComponent<PoolManager>();
     }
     public void Start()
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         player.SetActive(false);
         yield return new WaitForSeconds(0.5f);
-        player.transform.position = respawnPosition[0].position;
+        player.transform.position = respawnPosition[respawnPos].position;
         player.SetActive(true);
     }
     public void Res()

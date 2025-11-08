@@ -546,7 +546,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 7.3455353, y: 1.2012024, z: 0}
+    m_Scale: {x: 13.161249, y: 1.2012024, z: 0}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4704,8 +4704,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5279088, y: 1, z: 1}
+  m_Center: {x: -0.012923169, y: 0, z: 0}
 --- !u!208 &6908832364815227580
 NavMeshObstacle:
   m_ObjectHideFlags: 0
