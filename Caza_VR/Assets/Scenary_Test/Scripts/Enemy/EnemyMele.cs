@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 using System.Collections;
-using UnityEngine.PlayerLoop;
 
 public class EnemyMele : Enemy
 {
@@ -13,18 +12,12 @@ public class EnemyMele : Enemy
     public Transform[] patrolPoints;
     private NavMeshAgent agent;
     private int patrolIndex;
-    private int currentPoint = 0;
 
     public Transform player;
 
-
-    void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        
-    }
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         _patrolMovement = new PatrolForPoints(agent, patrolPoints, patrolIndex);
     }
 

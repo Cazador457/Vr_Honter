@@ -1,8 +1,6 @@
+using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.PlayerLoop;
 
 public class Bullet : MonoBehaviour
 {

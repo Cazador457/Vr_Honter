@@ -25,10 +25,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        //FrameRate Cap
+        //Application.targetFrameRate = 60;
         poolManager = GetComponent<PoolManager>();
     }
-    
+    public void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
     //Items Room
     public void InsideObject(bool state)
     {

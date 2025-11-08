@@ -18,6 +18,7 @@ public class LightMovPatrol : MonoBehaviour
     }
     void Start()
     {
+        //_patrolMovement = new PatrolForPoints(agent, patrolPoints, patrolIndex);
         agent = GetComponent<NavMeshAgent>();
         Initialized();
         _patrolMovement?.Destination();

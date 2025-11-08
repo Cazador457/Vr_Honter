@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 public class EnemyPusuit : Enemy
 {
@@ -11,7 +10,7 @@ public class EnemyPusuit : Enemy
     private void Start()
     {
         target = GameObject.Find("XR Origin Hands (XR Rig)");
-        targetT=target.GetComponent<Transform>();
+        targetT = target.GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
     }
     public override void OnEnable()

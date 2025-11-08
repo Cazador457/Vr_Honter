@@ -119,6 +119,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &14641716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 14641717}
+  - component: {fileID: 14641718}
+  m_Layer: 0
+  m_Name: SpawnA1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &14641717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14641716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1318644832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &14641718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14641716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c87ee7f7503284b82f97f0c33b15cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnEnemies
+  enemies: []
+  respawnPoints:
+  - {fileID: 1939161728}
+  - {fileID: 838041413}
+  - {fileID: 1667832410}
+  - {fileID: 154566851}
+  - {fileID: 72933259}
+  - {fileID: 1728494018}
+  respawntime: 2
 --- !u!1 &18784010
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,11 +321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMele
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 838041413}
-  - {fileID: 154566851}
-  - {fileID: 1728494018}
   patrolPoints:
   - {fileID: 907402754}
   - {fileID: 2117014854}
@@ -493,11 +541,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPusuit
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 1006863383}
-  - {fileID: 650898966}
-  - {fileID: 643065239}
   target: {fileID: 0}
 --- !u!136 &56935825
 CapsuleCollider:
@@ -5602,11 +5645,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMele
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 838041413}
-  - {fileID: 154566851}
-  - {fileID: 1728494018}
   patrolPoints:
   - {fileID: 907402754}
   - {fileID: 2117014854}
@@ -7067,11 +7105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPusuit
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 1006863383}
-  - {fileID: 650898966}
-  - {fileID: 643065239}
   target: {fileID: 0}
 --- !u!136 &322840389
 CapsuleCollider:
@@ -7872,11 +7905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPusuit
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 964570747}
-  - {fileID: 1886869398}
-  - {fileID: 1524153929}
   target: {fileID: 0}
 --- !u!136 &459472541
 CapsuleCollider:
@@ -8153,11 +8181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMele
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 1939161728}
-  - {fileID: 1667832410}
-  - {fileID: 72933259}
   patrolPoints:
   - {fileID: 1802604527}
   - {fileID: 907402754}
@@ -9033,11 +9056,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMele
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 1939161728}
-  - {fileID: 1667832410}
-  - {fileID: 72933259}
   patrolPoints:
   - {fileID: 1802604527}
   - {fileID: 907402754}
@@ -9566,6 +9584,59 @@ Transform:
   - {fileID: 103728513}
   m_Father: {fileID: 46171547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &630622528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630622529}
+  - component: {fileID: 630622530}
+  m_Layer: 0
+  m_Name: SpawnA0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &630622529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630622528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1318644832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &630622530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630622528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c87ee7f7503284b82f97f0c33b15cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnEnemies
+  enemies: []
+  respawnPoints:
+  - {fileID: 1006863383}
+  - {fileID: 964570747}
+  - {fileID: 650898966}
+  - {fileID: 1886869398}
+  - {fileID: 643065239}
+  - {fileID: 1524153929}
+  respawntime: 2
 --- !u!1 &635024549
 GameObject:
   m_ObjectHideFlags: 0
@@ -10360,7 +10431,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 715153196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b23d882fa307be84a981ad7c95eaceff, type: 3}
+  m_Script: {fileID: 11500000, guid: 92f8c5a6d95061d4fb301fc3c2d76b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoolVar
   pools: []
@@ -16064,11 +16135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPusuit
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 1006863383}
-  - {fileID: 650898966}
-  - {fileID: 643065239}
   target: {fileID: 0}
 --- !u!136 &779766361
 CapsuleCollider:
@@ -20316,11 +20382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPusuit
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 964570747}
-  - {fileID: 1886869398}
-  - {fileID: 1524153929}
   target: {fileID: 0}
 --- !u!136 &1241196028
 CapsuleCollider:
@@ -20683,7 +20744,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 630622529}
+  - {fileID: 14641717}
   m_Father: {fileID: 1100585322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320557824
@@ -21699,11 +21762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMele
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 838041413}
-  - {fileID: 154566851}
-  - {fileID: 1728494018}
   patrolPoints:
   - {fileID: 907402754}
   - {fileID: 2117014854}
@@ -22111,10 +22169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   health: 300
-  respawnDelay: 10
-  respawnPoints:
-  - {fileID: 2022547489}
-  - {fileID: 755495892}
   patrolPoints:
   - {fileID: 755495892}
   - {fileID: 1778802649}
@@ -55768,11 +55822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMele
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 1939161728}
-  - {fileID: 1667832410}
-  - {fileID: 72933259}
   patrolPoints:
   - {fileID: 1802604527}
   - {fileID: 907402754}
@@ -56196,11 +56245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPusuit
   health: 50
-  respawnDelay: 3
-  respawnPoints:
-  - {fileID: 964570747}
-  - {fileID: 1886869398}
-  - {fileID: 1524153929}
   target: {fileID: 0}
 --- !u!199 &6706000067500346945
 ParticleSystemRenderer:
@@ -56313,10 +56357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   health: 300
-  respawnDelay: 10
-  respawnPoints:
-  - {fileID: 2022547489}
-  - {fileID: 755495892}
   patrolPoints:
   - {fileID: 755495892}
   - {fileID: 1778802649}
