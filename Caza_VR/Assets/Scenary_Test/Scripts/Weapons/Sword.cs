@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Enemy enemy;
+    public float Damage = 50f;
+    public void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.CompareTag("Enemy"))
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (enemy != null)
+            {
+                enemy.TakeDamage(Damage);
+            }
+            gameObject.SetActive(false);
+        }
     }
 }
