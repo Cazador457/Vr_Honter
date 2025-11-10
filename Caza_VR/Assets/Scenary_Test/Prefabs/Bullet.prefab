@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   enemy: {fileID: 0}
   LifeTime: 4
-  Speed: 6
+  Speed: 10
   Damage: 50
   direction: {x: 0, y: 0, z: 0}
 --- !u!54 &4885336537520929046
