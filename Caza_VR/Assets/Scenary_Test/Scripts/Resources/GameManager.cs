@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
     public Transform[] respawnPosition;
     public int respawnPos = 0;
     public GameObject player;
+    public GameObject pistol;
+    public Transform pistolRes;
 
-    public bool pistol = false;
-    public bool scythe = false;
-    public bool sword = false;
+    public GameObject[] zone1;
+    public GameObject[] zone2;
+    public GameObject[] zone3;
 
     public bool sObject = true;
     public bool systemActive = true;
@@ -61,5 +63,17 @@ public class GameManager : MonoBehaviour
     public void Res()
     {
         StartCoroutine(Respawn());
+    }
+
+    //Weapon Return
+    public void WReturn()
+    {
+        StartCoroutine(PistolRes());
+    }
+    IEnumerator PistolRes()
+    {
+        pistol.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        pistol.transform.position = pistolRes.position;
     }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System;
 using System.Collections;
 
 public class EnemyMele : Enemy
@@ -61,5 +60,9 @@ public class EnemyMele : Enemy
             elapsed += Time.deltaTime;
             yield return null;
         }
+    }
+    public override void OnEnable()
+    {
+        health = 350f;
     }
 }

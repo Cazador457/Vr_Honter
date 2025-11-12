@@ -16,7 +16,7 @@ public class EnemyPusuit : Enemy
     public override void OnEnable()
     {
         LightMovPatrol.OnPursuit += Pursuit;
-        
+        health =200f;
     }
     private void OnDisable()
     {

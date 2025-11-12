@@ -4,7 +4,7 @@ using System;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    public float health = 50f;
+    public float health;
 
     public event Action<Enemy> onDeath;
 
