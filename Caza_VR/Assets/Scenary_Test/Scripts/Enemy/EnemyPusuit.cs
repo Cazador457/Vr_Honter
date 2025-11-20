@@ -9,7 +9,8 @@ public class EnemyPusuit : Enemy
     private Transform targetT;
     private void Start()
     {
-        target = GameObject.Find("XR Origin Hands (XR Rig)");
+        target = FindFirstObjectByType<Unity.XR.CoreUtils.XROrigin>().gameObject;
+        //target = GameObject.FindObjectByType("XR Origin Hands (XR Rig)");
         targetT = target.GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
     }
