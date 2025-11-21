@@ -6,12 +6,14 @@ public class PatrolForPoints : IPatrol
     public NavMeshAgent agent;
     public Transform[] patrolPoints;
     public int patrolIndex;
+    public float arrival = 1.2f;
 
-    public PatrolForPoints(NavMeshAgent agent, Transform[] patrolPoints, int patrolIndex)
+    public PatrolForPoints(NavMeshAgent agent, Transform[] patrolPoints, int patrolIndex, float arrival)
     {
         this.agent = agent;
         this.patrolPoints = patrolPoints;
         this.patrolIndex = patrolIndex;
+        this.arrival = arrival;
     }
 
     public void Destination()
@@ -28,7 +30,7 @@ public class PatrolForPoints : IPatrol
         if (patrolPoints == null || patrolPoints.Length == 0)
             return;
 
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < arrival)
         {
             patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
             agent.SetDestination(patrolPoints[patrolIndex].position);

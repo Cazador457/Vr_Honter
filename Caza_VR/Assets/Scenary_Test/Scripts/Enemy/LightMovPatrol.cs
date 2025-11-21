@@ -11,10 +11,11 @@ public class LightMovPatrol : MonoBehaviour
     public Transform[] patrolPoints;
     private NavMeshAgent agent;
     private int patrolIndex;
+    public float arrival = 1.2f;
 
     public void Initialized()
     {
-        _patrolMovement = new PatrolForPoints(agent, patrolPoints, patrolIndex);
+        _patrolMovement = new PatrolForPoints(agent, patrolPoints, patrolIndex,arrival);
     }
     void Start()
     {
