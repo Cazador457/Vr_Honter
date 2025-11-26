@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public int bulletsFired=0;
 
     public TextMeshProUGUI enemyKV;
+    public int eSpetialKilled = 0;
+    public TextMeshProUGUI eSpetialKV;
+
     void Awake()
     {
         if(Instance == null)
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         EnemyKValue();
+        ESpetialKValue();
     }
     //Items Room
     public void InsideObject(bool state)
@@ -103,9 +107,8 @@ public class GameManager : MonoBehaviour
         pistol.SetActive(true);
     }
 
-    //
-    public void EnemyKValue()
-    {
-        enemyKV.text = $"{enemiesKilled}";
-    }
+    //UI
+    public void EnemyKValue() => enemyKV.text = $"{enemiesKilled}";
+
+    public void ESpetialKValue() => eSpetialKV.text = $"{eSpetialKilled}";
 }

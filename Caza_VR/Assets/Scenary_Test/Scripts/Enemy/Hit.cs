@@ -8,6 +8,8 @@ public class Hit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.Instance.enemiesKilled = 0;
+            GameManager.Instance.eSpetialKilled = 0;
             GameManager.Instance.respawnPos = playerRes;
             GameManager.Instance.Res();
             Debug.Log("Die");

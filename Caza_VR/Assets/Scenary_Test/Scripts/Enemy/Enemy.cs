@@ -13,20 +13,15 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            GameManager.Instance.enemiesKilled++;
+            AddValue();
             Die();
             gameObject.SetActive(false);
         }
     }
 
-    public virtual void Die()
-    {
-        onDeath?.Invoke(this);
-    }
+    public virtual void Die()=> onDeath?.Invoke(this);
 
-    public virtual void OnEnable()
-    {
-        //Cada vez que se active, restaura vida
-        health = 50f;
-    }
+    public virtual void OnEnable()=> health = 50f;
+
+    public virtual void AddValue()=> GameManager.Instance.enemiesKilled++;
 }
