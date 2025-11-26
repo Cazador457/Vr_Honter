@@ -29,9 +29,9 @@ public class Gun : MonoBehaviour
                         print("Definir Tipo de Bala");                                                            
                         break;                                                                                    
                     case BulletType.Normal:                                                                       
-                        //GameObject bullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);   
-                        //bullet.GetComponent<Bullet>().direction = transform.forward;
-                        PoolManager.Instance.SpawnFromPool("Bullet", spawn.position, spawn.rotation);
+                        GameObject bullet = Instantiate(bulletPrefab, spawn.position, Quaternion.identity);   
+                        bullet.GetComponent<Bullet>().direction = transform.forward;
+                        //PoolManager.Instance.SpawnFromPool("Bullet", spawn.position, spawn.rotation);
                         break;                                                                                    
                     case BulletType.Antipersonnel:                                                                
                         break;                                                                                    

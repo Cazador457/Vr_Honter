@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +17,15 @@ public class GameManager : MonoBehaviour
     public GameObject[] zone2;
     public GameObject[] zone3;
 
+    public bool actObject = false;
+    public bool systemDesactive = false;
+
     public bool sObject = true;
     public bool systemActive = true;
     public int enemiesKilled=0;
     public int bulletsFired=0;
+
+    public TextMeshProUGUI enemyKV;
     void Awake()
     {
         if(Instance == null)
@@ -37,6 +43,10 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
     }
+    public void Update()
+    {
+        EnemyKValue();
+    }
     //Items Room
     public void InsideObject(bool state)
     {
@@ -50,6 +60,21 @@ public class GameManager : MonoBehaviour
                 obj.SetActive(false);
         }
         systemActive = false;
+    }
+
+    //Active GO
+    public void ActiveObject(bool state)
+    {
+        actObject = state;
+    }
+    public void OnWalls(GameObject[] objects)
+    {
+        foreach (var obj in objects)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+        systemDesactive = true;
     }
 
     //Respawn
@@ -75,5 +100,12 @@ public class GameManager : MonoBehaviour
         pistol.SetActive(false);
         yield return new WaitForSeconds(0.2f);
         pistol.transform.position = pistolRes.position;
+        pistol.SetActive(true);
+    }
+
+    //
+    public void EnemyKValue()
+    {
+        enemyKV.text = $"{enemiesKilled}";
     }
 }
