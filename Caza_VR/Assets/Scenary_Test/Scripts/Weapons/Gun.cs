@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 public class Gun : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class Gun : MonoBehaviour
 
     private float elapsedFireTime;
     public float cooldown = .25f;
+
     void Update()
     {
         elapsedFireTime += Time.deltaTime;
