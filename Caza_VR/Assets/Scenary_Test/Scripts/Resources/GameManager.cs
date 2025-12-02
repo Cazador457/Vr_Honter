@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public int respawnPos = 0;
     public GameObject player;
     public GameObject pistol;
+    public GameObject pistol2;
     public Transform pistolRes;
+    public Transform pistolRes2;
 
     public GameObject[] zone1;
     public GameObject[] zone2;
@@ -98,6 +100,11 @@ public class GameManager : MonoBehaviour
     public void WReturn()
     {
         StartCoroutine(PistolRes());
+        StartCoroutine(PistolRes2());
+    }
+    public void WReturn2()
+    {
+        StartCoroutine(PistolRes2());
     }
     IEnumerator PistolRes()
     {
@@ -105,6 +112,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         pistol.transform.position = pistolRes.position;
         pistol.SetActive(true);
+    }
+    IEnumerator PistolRes2()
+    {
+        pistol2.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        pistol2.transform.position = pistolRes2.position;
+        pistol2.SetActive(true);
     }
 
     //UI

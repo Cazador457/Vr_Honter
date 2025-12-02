@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public Enemy enemy;
     public static Action OnDie;
     public float LifeTime = 4f;
-    public float Speed = 3.5f;
+    public float Speed = 5.5f;
     public float Damage =50f;
     public Vector3 direction;
     private Rigidbody rb;

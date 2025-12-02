@@ -10,15 +10,12 @@ public class hitS : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
-            GameManager.Instance.enemiesKilled = 0;
-            GameManager.Instance.eSpetialKilled = 0;
             GameManager.Instance.respawnPos = playerRes;
             if (player != null)
             {
                 player.TakeDamage(damage);
             }
-
-            //GameManager.Instance.Res();
+            GameManager.Instance.Res();
             Debug.Log("Die");
         }
     }

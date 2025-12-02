@@ -11,7 +11,7 @@ public class WallLim : MonoBehaviour
     }
     public void DesactiveWall()
     {
-        if (gameManager.enemiesKilled >= open)
+        if (GameManager.Instance.enemiesKilled >= open)
         {
             wall.SetActive(false);
         }

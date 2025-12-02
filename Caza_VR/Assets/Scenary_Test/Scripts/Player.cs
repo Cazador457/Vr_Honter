@@ -57,9 +57,6 @@ public class Player : MonoBehaviour
     public void PauseSh()
     {
         pausePanel.SetActive(!pausePanel.activeSelf);
-        //if(pausePanel==false) pausePanel.SetActive(true);
-        
-        //if(pausePanel==true) pausePanel.SetActive(false);
     }
     public int playerRes = 0;
     public void Reset()
@@ -67,14 +64,18 @@ public class Player : MonoBehaviour
         GameManager.Instance.enemiesKilled = 0;
         GameManager.Instance.eSpetialKilled = 0;
         GameManager.Instance.respawnPos = playerRes;
+        diePanel.SetActive(false);
+        pausePanel.SetActive(false);
         GameManager.Instance.Res();
     }
-    public int playerQuit = 0;
+    public int playerQuit = 10;
     public void Quit()
     {
         GameManager.Instance.enemiesKilled = 0;
         GameManager.Instance.eSpetialKilled = 0;
         GameManager.Instance.respawnPos = playerQuit;
+        diePanel.SetActive(false);
+        pausePanel.SetActive(false);
         GameManager.Instance.Res();
     }
 

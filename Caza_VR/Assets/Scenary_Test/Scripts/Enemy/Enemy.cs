@@ -23,5 +23,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnEnable()=> health = 50f;
 
-    public virtual void AddValue()=> GameManager.Instance.enemiesKilled++;
+    public virtual void AddValue()
+    {
+        GameManager.Instance.enemiesKilled++;
+    }
 }
